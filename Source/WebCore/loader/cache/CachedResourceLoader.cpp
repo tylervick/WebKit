@@ -910,7 +910,7 @@ void CachedResourceLoader::prepareFetch(CachedResource::Type type, CachedResourc
             request.setSelectedServiceWorkerRegistrationIdentifierIfNeeded(activeServiceWorker->registrationIdentifier());
     }
 
-    request.setAcceptHeaderIfNone(type);
+    request.setAcceptHeaderIfNone(type, protectedFrame().get());
 
     // Accept-Language value is handled in underlying port-specific code.
     // FIXME: Decide whether to support client hints
@@ -1392,7 +1392,7 @@ CachedResourceLoader::RevalidationPolicy CachedResourceLoader::determineRevalida
         return Use;
     ASSERT(!existingResource->validationInProgress());
 
-    if (is<CachedImage>(*existingResource) && downcast<CachedImage>(*existingResource).canSkipRevalidation(*this, cachedResourceRequest))
+    if (CachedResourceHandle cachedImage = dynamicDowncast<CachedImage>(*existingResource); cachedImage && cachedImage->canSkipRevalidation(*this, cachedResourceRequest))
         return Use;
 
     auto cachePolicy = this->cachePolicy(type, request.url());

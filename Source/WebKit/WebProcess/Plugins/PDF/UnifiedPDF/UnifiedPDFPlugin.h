@@ -136,6 +136,7 @@ private:
     float scaleForFitToView() const;
 
     CGFloat scaleFactor() const override;
+    float contentScaleFactor() const final;
 
     void didBeginMagnificationGesture() override;
     void didEndMagnificationGesture() override;
@@ -163,6 +164,7 @@ private:
 
     void scrollbarStyleChanged(WebCore::ScrollbarStyle, bool forceUpdate) override;
     void updateScrollbars() override;
+    void willAttachScrollingNode() final;
     void didAttachScrollingNode() final;
 
     bool geometryDidChange(const WebCore::IntSize&, const WebCore::AffineTransform&) override;
@@ -399,7 +401,7 @@ private:
 
     bool isTaggedPDF() const;
 
-    std::pair<bool, bool> shouldShowDebugIndicators() const;
+    bool shouldShowDebugIndicators() const;
 
 #if PLATFORM(MAC)
     void createPasswordEntryForm();

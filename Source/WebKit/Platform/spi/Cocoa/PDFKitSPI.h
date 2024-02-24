@@ -116,9 +116,24 @@
 - (PDFDestination *)namedDestination:(NSString *)name;
 @end
 
+#if HAVE(COREGRAPHICS_WITH_PDF_AREA_OF_INTEREST_SUPPORT)
 @interface PDFPage (IPI)
 - (CGPDFPageLayoutRef) pageLayout;
 @end
+#endif
+
+#if HAVE(PDFDOCUMENT_SELECTION_WITH_GRANULARITY)
+typedef NS_ENUM(NSUInteger, PDFSelectionGranularity);
+
+#define PDFSelectionGranularityCharacter 0
+#define PDFSelectionGranularityWord 1
+#define PDFSelectionGranularityLine 2
+
+@interface PDFDocument (Staging_122179178)
+- (/*nullable*/ PDFSelection *)selectionFromPage:(PDFPage *)startPage atPoint:(PDFPoint)startPoint toPage:(PDFPage *)endPage atPoint:(PDFPoint)endPoint withGranularity:(PDFSelectionGranularity)granularity;
+@end
+#endif
+
 #endif // ENABLE(UNIFIED_PDF)
 
 // FIXME: Move this declaration inside the !USE(APPLE_INTERNAL_SDK) block once rdar://problem/118903435 is in builds.

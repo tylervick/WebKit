@@ -433,6 +433,8 @@ std::optional<FailedCheck> TypeChecker::check()
 // Declarations
 void TypeChecker::visit(AST::Structure& structure)
 {
+    visitAttributes(structure.attributes());
+
     HashMap<String, const Type*> fields;
     for (unsigned i = 0; i < structure.members().size(); ++i) {
         auto& member = structure.members()[i];
@@ -676,14 +678,24 @@ void TypeChecker::visit(AST::Function& function)
     parameters.reserveInitialCapacity(function.parameters().size());
     for (auto& parameter : function.parameters()) {
         visitAttributes(parameter.attributes());
-        parameters.append(resolve(parameter.typeName()));
+        auto* parameterType = resolve(parameter.typeName());
+        if (!parameterType->isConstructible() && !std::holds_alternative<Types::Pointer>(*parameterType) && !parameterType->isTexture() && !parameterType->isSampler()) {
+            typeError(InferBottom::No, parameter.span(), "type of function parameter must be constructible or a pointer, sampler or texture");
+            parameterType = m_types.bottomType();
+        }
+        parameters.append(parameterType);
     }
 
     visitAttributes(function.returnAttributes());
-    if (function.maybeReturnType())
-        m_returnType = resolve(*function.maybeReturnType());
-    else
+    if (!function.maybeReturnType())
         m_returnType = m_types.voidType();
+    else {
+        m_returnType = resolve(*function.maybeReturnType());
+        if (!m_returnType->isConstructible()) {
+            m_returnType = m_types.bottomType();
+            typeError(InferBottom::No, function.maybeReturnType()->span(), "function return type must be a constructible type");
+        }
+    }
 
     {
         ContextScope functionContext(this);
@@ -1201,6 +1213,11 @@ void TypeChecker::visit(AST::CallExpression& call)
             target.m_inferredType = targetBinding->type;
             if (targetBinding->kind == Binding::Type) {
                 if (auto* structType = std::get_if<Types::Struct>(targetBinding->type)) {
+                    if (!targetBinding->type->isConstructible()) {
+                        typeError(call.span(), "struct is not constructible");
+                        return;
+                    }
+
                     auto numberOfArguments = call.arguments().size();
                     auto numberOfFields = structType->fields.size();
                     if (numberOfArguments && numberOfArguments != numberOfFields) {
@@ -1222,12 +1239,11 @@ void TypeChecker::visit(AST::CallExpression& call)
                         }
                         argument.m_inferredType = fieldType;
                         auto& value = argument.m_constantValue;
-                        if (value.has_value()) {
-                            if (convertValue(argument.span(), argument.inferredType(), value))
-                                constantFields.set(member.name(), *value);
-                            else
-                                isConstant = false;
+                        if (value.has_value() && convertValue(argument.span(), argument.inferredType(), value)) {
+                            constantFields.set(member.name(), *value);
+                            continue;
                         }
+                        isConstant = false;
                     }
                     if (isConstant) {
 

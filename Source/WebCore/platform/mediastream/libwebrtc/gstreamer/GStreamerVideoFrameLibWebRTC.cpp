@@ -56,20 +56,20 @@ GRefPtr<GstSample> convertLibWebRTCVideoFrameToGStreamerSample(const webrtc::Vid
     return sample;
 }
 
-std::unique_ptr<webrtc::VideoFrame> convertGStreamerSampleToLibWebRTCVideoFrame(GRefPtr<GstSample>& sample, webrtc::VideoRotation rotation, int64_t timestamp, int64_t renderTimeMs)
+std::unique_ptr<webrtc::VideoFrame> convertGStreamerSampleToLibWebRTCVideoFrame(GRefPtr<GstSample>&& sample, webrtc::VideoRotation rotation, int64_t timestamp, int64_t renderTimeMs)
 {
-    auto frameBuffer(GStreamerVideoFrameLibWebRTC::create(sample));
-    return std::unique_ptr<webrtc::VideoFrame>(new webrtc::VideoFrame(frameBuffer, timestamp, renderTimeMs, rotation));
+    auto frameBuffer(GStreamerVideoFrameLibWebRTC::create(WTFMove(sample)));
+    return std::unique_ptr<webrtc::VideoFrame>(new webrtc::VideoFrame(WTFMove(frameBuffer), timestamp, renderTimeMs, rotation));
 }
 
-rtc::scoped_refptr<webrtc::VideoFrameBuffer> GStreamerVideoFrameLibWebRTC::create(const GRefPtr<GstSample>& sample)
+rtc::scoped_refptr<webrtc::VideoFrameBuffer> GStreamerVideoFrameLibWebRTC::create(GRefPtr<GstSample>&& sample)
 {
     GstVideoInfo info;
 
     if (!gst_video_info_from_caps(&info, gst_sample_get_caps(sample.get())))
         ASSERT_NOT_REACHED();
 
-    return rtc::scoped_refptr<webrtc::VideoFrameBuffer>(new GStreamerVideoFrameLibWebRTC(sample, info));
+    return rtc::scoped_refptr<webrtc::VideoFrameBuffer>(new GStreamerVideoFrameLibWebRTC(WTFMove(sample), info));
 }
 
 rtc::scoped_refptr<webrtc::I420BufferInterface> GStreamerVideoFrameLibWebRTC::ToI420()
@@ -89,7 +89,7 @@ rtc::scoped_refptr<webrtc::I420BufferInterface> GStreamerVideoFrameLibWebRTC::To
         outInfo.fps_d = info->fps_d;
 
         auto buffer = adoptGRef(gst_buffer_new_allocate(nullptr, GST_VIDEO_INFO_SIZE(&outInfo), nullptr));
-        GstMappedFrame outFrame(buffer.get(), outInfo, GST_MAP_WRITE);
+        GstMappedFrame outFrame(buffer.get(), &outInfo, GST_MAP_WRITE);
         GUniquePtr<GstVideoConverter> videoConverter(gst_video_converter_new(inFrame.info(), &outInfo, gst_structure_new("GstVideoConvertConfig",
             GST_VIDEO_CONVERTER_OPT_THREADS, G_TYPE_UINT, std::max(std::thread::hardware_concurrency(), 1u), nullptr)));
 

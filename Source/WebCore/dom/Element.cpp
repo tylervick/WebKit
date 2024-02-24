@@ -2553,7 +2553,7 @@ void Element::parserSetAttributes(std::span<const Attribute> attributes)
 
     if (auto* inputElement = dynamicDowncast<HTMLInputElement>(*this)) {
         DelayedUpdateValidityScope delayedUpdateValidityScope(*inputElement);
-        inputElement->parserInitializeInputType();
+        inputElement->initializeInputTypeAfterParsingOrCloning();
     }
 
     // Use attributes instead of m_elementData because attributeChanged might modify m_elementData.
@@ -3619,7 +3619,7 @@ void Element::focus(const FocusOptions& options)
         // Focus and change event handlers can cause us to lose our last ref.
         // If a focus event handler changes the focus to a different node it
         // does not make sense to continue and update appearence.
-        if (!CheckedRef(page->focusController())->setFocusedElement(newTarget.get(), frame, optionsWithVisibility))
+        if (!page->checkedFocusController()->setFocusedElement(newTarget.get(), frame, optionsWithVisibility))
             return;
     }
 
@@ -3685,7 +3685,7 @@ void Element::blur()
 {
     if (treeScope().focusedElementInScope() == this) {
         if (RefPtr frame = document().frame())
-            CheckedRef(frame->page()->focusController())->setFocusedElement(nullptr, *frame);
+            frame->page()->checkedFocusController()->setFocusedElement(nullptr, *frame);
         else
             protectedDocument()->setFocusedElement(nullptr);
     }
@@ -4141,8 +4141,7 @@ const RenderStyle& Element::resolvePseudoElementStyle(const Style::PseudoElement
         style->inheritFrom(*parentStyle);
         // FIXME: RenderStyle should switch to use PseudoElementIdentifier.
         style->setPseudoElementType(pseudoElementIdentifier.pseudoId);
-        if (!pseudoElementIdentifier.nameArgument.isNull())
-            style->setPseudoElementNameArgument(pseudoElementIdentifier.nameArgument);
+        style->setPseudoElementNameArgument(pseudoElementIdentifier.nameArgument);
     }
 
     auto* computedStyle = style.get();
@@ -5128,6 +5127,10 @@ void Element::cloneAttributesFromElement(const Element& other)
     other.synchronizeAllAttributes();
     if (!other.m_elementData) {
         m_elementData = nullptr;
+        if (auto* inputElement = dynamicDowncast<HTMLInputElement>(*this)) {
+            DelayedUpdateValidityScope delayedUpdateValidityScope(*inputElement);
+            inputElement->initializeInputTypeAfterParsingOrCloning();
+        }
         return;
     }
 
@@ -5160,6 +5163,11 @@ void Element::cloneAttributesFromElement(const Element& other)
     else
         m_elementData = other.m_elementData->makeUniqueCopy();
 
+    if (auto* inputElement = dynamicDowncast<HTMLInputElement>(*this)) {
+        DelayedUpdateValidityScope delayedUpdateValidityScope(*inputElement);
+        inputElement->initializeInputTypeAfterParsingOrCloning();
+    }
+
     for (const Attribute& attribute : attributesIterator())
         notifyAttributeChanged(attribute.name(), nullAtom(), attribute.value(), AttributeModificationReason::ByCloning);
 
@@ -5170,6 +5178,10 @@ void Element::cloneDataFromElement(const Element& other)
 {
     cloneAttributesFromElement(other);
     copyNonAttributePropertiesFromElement(other);
+#if ASSERT_ENABLED
+    if (auto* input = dynamicDowncast<HTMLInputElement>(*this))
+        ASSERT(!input->userAgentShadowRoot());
+#endif
 }
 
 void Element::createUniqueElementData()

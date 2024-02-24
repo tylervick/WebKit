@@ -1526,6 +1526,7 @@
 		41FFD2C62756573E00501BBF /* MediaPlayerPrivateAVFoundationObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = DF9AFD7113FC31D80015FEB7 /* MediaPlayerPrivateAVFoundationObjC.mm */; };
 		427DA71D13735DFA007C57FB /* JSServiceWorkerInternals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 427DA71B13735DFA007C57FB /* JSServiceWorkerInternals.cpp */; };
 		427DA71E13735DFA007C57FB /* JSServiceWorkerInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 427DA71C13735DFA007C57FB /* JSServiceWorkerInternals.h */; };
+		42B6D0F72ACAEC0300AE5EC1 /* ApplePayDisbursementPaymentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 42B6D0F62ACAEC0200AE5EC1 /* ApplePayDisbursementPaymentRequest.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		42E28B572AAC3C5F0144527C /* RenderSVGResourcePaintServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43F48A552BAC7C6E0033527C /* RenderSVGResourcePaintServer.h */; };
 		43107BE218CC19DE00CC18E8 /* SelectorPseudoTypeMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 43107BE118CC19DE00CC18E8 /* SelectorPseudoTypeMap.h */; };
 		432D3FE818A8658400D7DC03 /* SelectorCheckerTestFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 432D3FE718A8658400D7DC03 /* SelectorCheckerTestFunctions.h */; };
@@ -2302,6 +2303,7 @@
 		53E29E5F167A8A1900586D3D /* InternalSettingsGenerated.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E29E5D167A8A1900586D3D /* InternalSettingsGenerated.h */; };
 		53ED3FDE167A88E7006762E6 /* JSInternalSettingsGenerated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53ED3FDC167A88E7006762E6 /* JSInternalSettingsGenerated.cpp */; };
 		53ED3FDF167A88E7006762E6 /* JSInternalSettingsGenerated.h in Headers */ = {isa = PBXBuildFile; fileRef = 53ED3FDD167A88E7006762E6 /* JSInternalSettingsGenerated.h */; };
+		54BBB5FA2B7C41B100BF1A8A /* ModelPlayerIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BBB5F92B7C41A900BF1A8A /* ModelPlayerIdentifier.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		550640B02407587E00AAE045 /* ImageBufferCGBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 72BAC3AD23E1E545008D741C /* ImageBufferCGBackend.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		550A0BCA085F6039007353D6 /* QualifiedName.h in Headers */ = {isa = PBXBuildFile; fileRef = 550A0BC8085F6039007353D6 /* QualifiedName.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		5546757B1FD212A9003B10B0 /* ImageSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 554675781FD1FC1A003B10B0 /* ImageSource.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -3685,7 +3687,6 @@
 		9479493F1E0463C600018D85 /* DeprecatedCSSOMRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 947949281E032AE900018D85 /* DeprecatedCSSOMRect.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		947949401E0463CE00018D85 /* DeprecatedCSSOMPrimitiveValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 947949261E03132000018D85 /* DeprecatedCSSOMPrimitiveValue.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		947949411E0463D400018D85 /* DeprecatedCSSOMCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9479492A1E032EDB00018D85 /* DeprecatedCSSOMCounter.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		948FD0452B4C9DA300043FEB /* CryptoKitShim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948FCFFC2B4C634C00043FEB /* CryptoKitShim.swift */; };
 		94925CE92B320BCC001C62B8 /* CorrectionIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 94925CE62B320BCC001C62B8 /* CorrectionIndicator.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		9493B6BF1D74B4120088E780 /* MediaQueryBlockWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9493B6B71D74B3950088E780 /* MediaQueryBlockWatcher.h */; };
 		949C77011D6E1D9800C0DE4F /* CSSParserFastPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 949C76FF1D6E1D8C00C0DE4F /* CSSParserFastPaths.h */; };
@@ -5190,6 +5191,7 @@
 		CD8D306F23AD4FA8006C3975 /* CDMLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = CD8D306D23AD4FA8006C3975 /* CDMLogging.h */; };
 		CD92F5132260FFEE00F87BB3 /* DocumentFullscreen.h in Headers */ = {isa = PBXBuildFile; fileRef = CD92F5102260FFEE00F87BB3 /* DocumentFullscreen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD92F5182261038200F87BB3 /* FullscreenManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CD92F5162261038200F87BB3 /* FullscreenManager.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD948D8F2B850E8200104CB3 /* SharedAudioDestination.h in Headers */ = {isa = PBXBuildFile; fileRef = CD948D8D2B850E8100104CB3 /* SharedAudioDestination.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD94A5DE1F72F57B00F525C5 /* CDMClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD94A5C91F71CA9D00F525C5 /* CDMClient.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD9CC58524C6BBEB00CD3C64 /* VP9Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FE5BA24BCE7B6009FCDA4 /* VP9Utilities.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD9DE17517AAC74C00EA386D /* JSMediaSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9DE17317AAC74C00EA386D /* JSMediaSource.h */; };
@@ -6552,13 +6554,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5355E8D11F967E9D0031E08C;
 			remoteInfo = "Generate Unified Sources";
-		};
-		94DF80232B4E619B00FF079A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 948FD0382B4C9D7900043FEB;
-			remoteInfo = WebCoreSwift;
 		};
 		DD041FF009D9E3250010AF2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -10363,6 +10358,8 @@
 		41FFD2C227563E0000501BBF /* AudioSampleDataConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioSampleDataConverter.mm; sourceTree = "<group>"; };
 		427DA71B13735DFA007C57FB /* JSServiceWorkerInternals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSServiceWorkerInternals.cpp; sourceTree = "<group>"; };
 		427DA71C13735DFA007C57FB /* JSServiceWorkerInternals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSServiceWorkerInternals.h; sourceTree = "<group>"; };
+		42B465202ABDF777003A1F04 /* ApplePayDisbursementPaymentRequest.idl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ApplePayDisbursementPaymentRequest.idl; sourceTree = "<group>"; };
+		42B6D0F62ACAEC0200AE5EC1 /* ApplePayDisbursementPaymentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplePayDisbursementPaymentRequest.h; sourceTree = "<group>"; };
 		42E48B662BAC7C6E0044526B /* SVGPaintServerHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGPaintServerHandling.h; sourceTree = "<group>"; };
 		43107BE118CC19DE00CC18E8 /* SelectorPseudoTypeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorPseudoTypeMap.h; sourceTree = "<group>"; };
 		432D3FE718A8658400D7DC03 /* SelectorCheckerTestFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorCheckerTestFunctions.h; sourceTree = "<group>"; };
@@ -11824,6 +11821,7 @@
 		53E29E5D167A8A1900586D3D /* InternalSettingsGenerated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternalSettingsGenerated.h; sourceTree = "<group>"; };
 		53ED3FDC167A88E7006762E6 /* JSInternalSettingsGenerated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSInternalSettingsGenerated.cpp; sourceTree = "<group>"; };
 		53ED3FDD167A88E7006762E6 /* JSInternalSettingsGenerated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSInternalSettingsGenerated.h; sourceTree = "<group>"; };
+		54BBB5F92B7C41A900BF1A8A /* ModelPlayerIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelPlayerIdentifier.h; sourceTree = "<group>"; };
 		550A0BC7085F6039007353D6 /* QualifiedName.cpp */ = {isa = PBXFileReference; fileEncoding = 30; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QualifiedName.cpp; sourceTree = "<group>"; tabWidth = 8; usesTabs = 0; };
 		550A0BC8085F6039007353D6 /* QualifiedName.h */ = {isa = PBXFileReference; fileEncoding = 30; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = QualifiedName.h; sourceTree = "<group>"; tabWidth = 8; usesTabs = 0; };
 		550F664522CA89BD000A3417 /* SVGSharedPrimitiveProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVGSharedPrimitiveProperty.h; sourceTree = "<group>"; };
@@ -15036,7 +15034,6 @@
 		9479493B1E045CE100018D85 /* DeprecatedCSSOMPrimitiveValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeprecatedCSSOMPrimitiveValue.cpp; sourceTree = "<group>"; };
 		948FCFFC2B4C634C00043FEB /* CryptoKitShim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitShim.swift; sourceTree = "<group>"; };
 		948FD0332B4C9D0600043FEB /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
-		948FD0392B4C9D7A00043FEB /* libWebCoreSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWebCoreSwift.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94925CE52B320BCB001C62B8 /* CorrectionIndicator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CorrectionIndicator.mm; sourceTree = "<group>"; };
 		94925CE62B320BCC001C62B8 /* CorrectionIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorrectionIndicator.h; sourceTree = "<group>"; };
 		9493B6B61D74B3950088E780 /* MediaQueryBlockWatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MediaQueryBlockWatcher.cpp; path = parser/MediaQueryBlockWatcher.cpp; sourceTree = "<group>"; };
@@ -15048,7 +15045,6 @@
 		949C77061D6E48ED00C0DE4F /* CSSParserObserverWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CSSParserObserverWrapper.cpp; path = parser/CSSParserObserverWrapper.cpp; sourceTree = "<group>"; };
 		949C77071D6E48ED00C0DE4F /* CSSParserObserverWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSSParserObserverWrapper.h; path = parser/CSSParserObserverWrapper.h; sourceTree = "<group>"; };
 		949C770A1D6E49C300C0DE4F /* CSSParserObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSSParserObserver.h; path = parser/CSSParserObserver.h; sourceTree = "<group>"; };
-		94B97D822B572BE20079DB5F /* WebCoreSwift.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WebCoreSwift.xcconfig; sourceTree = "<group>"; };
 		94D4AC611DC24C810080F02D /* CSSCustomPropertyValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSSCustomPropertyValue.cpp; sourceTree = "<group>"; };
 		94DD79721E54E3A20058FB80 /* FlexibleBoxAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlexibleBoxAlgorithm.cpp; sourceTree = "<group>"; };
 		94DD79731E54E3A20058FB80 /* FlexibleBoxAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleBoxAlgorithm.h; sourceTree = "<group>"; };
@@ -18245,6 +18241,8 @@
 		CD641EB11818F5ED00EE4C41 /* MediaSourcePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaSourcePrivate.h; sourceTree = "<group>"; };
 		CD641EB21818F5ED00EE4C41 /* SourceBufferPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceBufferPrivate.h; sourceTree = "<group>"; };
 		CD641EC7181ED60100EE4C41 /* MediaSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaSample.h; sourceTree = "<group>"; };
+		CD66AE032B816C4D00963337 /* SharedAudioDestinationCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedAudioDestinationCocoa.h; sourceTree = "<group>"; };
+		CD66AE042B816C4D00963337 /* SharedAudioDestinationCocoa.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SharedAudioDestinationCocoa.cpp; sourceTree = "<group>"; };
 		CD6A1F0C297A1A8F00F7B9FA /* CanvasObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasObserver.h; sourceTree = "<group>"; };
 		CD6FE5B724BCE645009FCDA4 /* VP9UtilitiesCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VP9UtilitiesCocoa.h; sourceTree = "<group>"; };
 		CD6FE5B824BCE645009FCDA4 /* VP9UtilitiesCocoa.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VP9UtilitiesCocoa.mm; sourceTree = "<group>"; };
@@ -18317,6 +18315,8 @@
 		CD92F5102260FFEE00F87BB3 /* DocumentFullscreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentFullscreen.h; sourceTree = "<group>"; };
 		CD92F5162261038200F87BB3 /* FullscreenManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FullscreenManager.h; sourceTree = "<group>"; };
 		CD92F5172261038200F87BB3 /* FullscreenManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FullscreenManager.cpp; sourceTree = "<group>"; };
+		CD948D8D2B850E8100104CB3 /* SharedAudioDestination.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedAudioDestination.h; sourceTree = "<group>"; };
+		CD948D8E2B850E8100104CB3 /* SharedAudioDestination.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SharedAudioDestination.cpp; sourceTree = "<group>"; };
 		CD94A5C91F71CA9D00F525C5 /* CDMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMClient.h; sourceTree = "<group>"; };
 		CD94A5CC1F71CB6900F525C5 /* CDMRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMRequirement.h; sourceTree = "<group>"; };
 		CD94A5CD1F71CB6900F525C5 /* CDMKeySystemConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMKeySystemConfiguration.h; sourceTree = "<group>"; };
@@ -20762,13 +20762,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		948FD0372B4C9D7900043FEB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -20790,7 +20783,6 @@
 			children = (
 				417DA6D013734E02007C57FB /* libWebCoreTestSupport.dylib */,
 				93F19B1A08245E5A001E9ABC /* WebCore.framework */,
-				948FD0392B4C9D7A00043FEB /* libWebCoreSwift.a */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -22053,6 +22045,8 @@
 				74C2F53F29AC9B1C006C5F97 /* ApplePayDeferredPaymentRequest.idl */,
 				950183CB25D633D800D4340F /* ApplePayDetailsUpdateBase.h */,
 				950183C925D633D800D4340F /* ApplePayDetailsUpdateBase.idl */,
+				42B6D0F62ACAEC0200AE5EC1 /* ApplePayDisbursementPaymentRequest.h */,
+				42B465202ABDF777003A1F04 /* ApplePayDisbursementPaymentRequest.idl */,
 				1ADFDFD61E71D8DF008F5D34 /* ApplePayError.h */,
 				1ADFDFD71E71D8DF008F5D34 /* ApplePayError.idl */,
 				A1BB85992159AEA10067E07D /* ApplePayErrorCode.h */,
@@ -23023,7 +23017,6 @@
 				449098B10F8F82520076A327 /* FeatureDefines.xcconfig */,
 				5355E8DD1F9680420031E08C /* GenerateUnifiedSources.xcconfig */,
 				1CDD45E50BA9C84600F90147 /* WebCore.xcconfig */,
-				94B97D822B572BE20079DB5F /* WebCoreSwift.xcconfig */,
 				4181707D1386EDF20057AAA4 /* WebCoreTestSupport.xcconfig */,
 			);
 			path = Configurations;
@@ -32794,6 +32787,7 @@
 				07B93FF923B92AAA0036F8EA /* MIMETypeCache.h */,
 				2DC8D39625F2FE9300CFCBAB /* Model.cpp */,
 				2DC8D39725F2FE9400CFCBAB /* Model.h */,
+				54BBB5F92B7C41A900BF1A8A /* ModelPlayerIdentifier.h */,
 				314BE3A41B3103FB00141982 /* NamedImageGeneratedImage.cpp */,
 				314BE3A51B3103FB00141982 /* NamedImageGeneratedImage.h */,
 				7252396B254CADC200F5FB15 /* NativeImage.cpp */,
@@ -34364,6 +34358,8 @@
 				CDC734131977896C0046BFC5 /* CARingBuffer.h */,
 				417F7AED2139BF6500FBA7EC /* MediaSessionManagerCocoa.h */,
 				417F7AEA2139BF6400FBA7EC /* MediaSessionManagerCocoa.mm */,
+				CD66AE042B816C4D00963337 /* SharedAudioDestinationCocoa.cpp */,
+				CD66AE032B816C4D00963337 /* SharedAudioDestinationCocoa.h */,
 				417F7AEB2139BF6400FBA7EC /* WebAudioBufferList.cpp */,
 				417F7AEC2139BF6500FBA7EC /* WebAudioBufferList.h */,
 			);
@@ -37592,6 +37588,8 @@
 				FD31607512B026F700C1A359 /* ReverbConvolverStage.h */,
 				FD31607612B026F700C1A359 /* ReverbInputBuffer.cpp */,
 				FD31607712B026F700C1A359 /* ReverbInputBuffer.h */,
+				CD948D8E2B850E8100104CB3 /* SharedAudioDestination.cpp */,
+				CD948D8D2B850E8100104CB3 /* SharedAudioDestination.h */,
 				FD00D7A214A3F61900734011 /* SincResampler.cpp */,
 				FD00D7A314A3F61900734011 /* SincResampler.h */,
 				E7FBE7C524EC36F300A18E62 /* StereoPanner.cpp */,
@@ -37848,6 +37846,7 @@
 				95EAD56A266EF2FA004B9CF1 /* ApplePayDateComponentsRange.h in Headers */,
 				74C2F53E29AC9B0B006C5F97 /* ApplePayDeferredPaymentRequest.h in Headers */,
 				950183CD25D633D900D4340F /* ApplePayDetailsUpdateBase.h in Headers */,
+				42B6D0F72ACAEC0300AE5EC1 /* ApplePayDisbursementPaymentRequest.h in Headers */,
 				A12C59EE2035FC9B0012236B /* ApplePayError.h in Headers */,
 				A1BB859C2159AEA10067E07D /* ApplePayErrorCode.h in Headers */,
 				A1BB85A32159AF570067E07D /* ApplePayErrorContactField.h in Headers */,
@@ -41035,6 +41034,7 @@
 				313E79EA273C86B80097F905 /* ModelDocument.h in Headers */,
 				BC2B41172732F41E00A2D191 /* ModelPlayer.h in Headers */,
 				BC2B41192732F42900A2D191 /* ModelPlayerClient.h in Headers */,
+				54BBB5FA2B7C41B100BF1A8A /* ModelPlayerIdentifier.h in Headers */,
 				BC2B41182732F42300A2D191 /* ModelPlayerProvider.h in Headers */,
 				C6D74AD509AA282E000B0A52 /* ModifySelectionListLevel.h in Headers */,
 				709A01FE1E3D0BDD006B0D4C /* ModuleFetchFailureKind.h in Headers */,
@@ -42086,6 +42086,7 @@
 				46C963C62B6C9CAE002F46D1 /* ShareableBitmapHandle.h in Headers */,
 				46ADA8792B6D5B6500D9D746 /* ShareableResource.h in Headers */,
 				1D9F0FC12122029B005D8FD4 /* ShareData.h in Headers */,
+				CD948D8F2B850E8200104CB3 /* SharedAudioDestination.h in Headers */,
 				1A4A954E0B4EDCCB002D8C3C /* SharedBuffer.h in Headers */,
 				51FA2EDF27506FDE0011C15D /* SharedBufferChunkReader.h in Headers */,
 				510A91DC24CF46FE00BFD89C /* SharedGamepadValue.h in Headers */,
@@ -43314,13 +43315,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		948FD0352B4C9D7900043FEB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -43355,6 +43349,7 @@
 				DD17C081286EC52B00D60B58 /* Copy PDF.js */,
 				DDDFE82F2846EB77006F1EE5 /* Copy PDF.js Extras */,
 				F4CDF3CA27E9187200191928 /* Copy Profiling Data */,
+				94C721572B7BEC40007D6B4F /* ShellScript */,
 				93F19A0C08245E59001E9ABC /* Sources */,
 				93F19B1208245E59001E9ABC /* Frameworks */,
 				5D0D540D0E9862F60029E223 /* Check For Weak VTables and Externals */,
@@ -43367,7 +43362,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				94DF80242B4E619B00FF079A /* PBXTargetDependency */,
 				1C09D0681E32079D00725F18 /* PBXTargetDependency */,
 				DD041FF109D9E3250010AF2A /* PBXTargetDependency */,
 				5355E8DB1F967ED30031E08C /* PBXTargetDependency */,
@@ -43377,23 +43371,6 @@
 			productName = WebKit;
 			productReference = 93F19B1A08245E5A001E9ABC /* WebCore.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		948FD0382B4C9D7900043FEB /* WebCoreSwift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 948FD03F2B4C9D7B00043FEB /* Build configuration list for PBXNativeTarget "WebCoreSwift" */;
-			buildPhases = (
-				948FD0352B4C9D7900043FEB /* Headers */,
-				948FD0362B4C9D7900043FEB /* Sources */,
-				948FD0372B4C9D7900043FEB /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WebCoreSwift;
-			productName = WebCoreSwift;
-			productReference = 948FD0392B4C9D7A00043FEB /* libWebCoreSwift.a */;
-			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -43410,9 +43387,6 @@
 					};
 					93F198A508245E59001E9ABC = {
 						LastSwiftMigration = 1510;
-					};
-					948FD0382B4C9D7900043FEB = {
-						CreatedOnToolsVersion = 15.1;
 					};
 				};
 			};
@@ -43447,7 +43421,6 @@
 				DD041FBE09D9DDBE0010AF2A /* Derived Sources */,
 				417DA6CF13734E02007C57FB /* WebCoreTestSupport */,
 				5325BDC621DFF33700A0DEE1 /* Apply Configuration to XCFileLists */,
-				948FD0382B4C9D7900043FEB /* WebCoreSwift */,
 			);
 		};
 /* End PBXProject section */
@@ -43653,6 +43626,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "SRC_DIR=\"$SRCROOT/Modules/modern-media-controls\"\nDST_DIR=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/modern-media-controls\"\n\nmkdir -p \"$DST_DIR\"\n\nif [ \"${WK_PLATFORM_NAME}\" == \"macosx\" ]; then\n    IMG_OS_PREFIX=\"macOS\"\nelse\n    if [[ \"${WK_PLATFORM_NAME}\" == *\"watch\"* ]]; then\n        IMG_OS_PREFIX=\"watchOS\"\n    else\n        IMG_OS_PREFIX=\"iOS\"\n    fi\nfi\n\nif [ -n \"$IMG_OS_PREFIX\" ]; then\nrsync -aq --exclude \".svn\" --exclude \".DS_Store\" \"$SRC_DIR/images/$IMG_OS_PREFIX/\" \"$DST_DIR/images\"\nfi\n\ncd \"$SRC_DIR\"\n";
+		};
+		94C721572B7BEC40007D6B4F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nset -x\n\n# FIXME: Cross Project References don't have plumbing for generated headers. If it has one day then this could be removed and an appropriate path added.\nenv\nHEADER_PATH=($(find \"${CONFIGURATION_TEMP_DIR}/..\" -name \"PALSwift.h\" | grep DerivedSources || true))\nif [[ \"${#HEADER_PATH[*]}\" -eq 0 ]]; then\n    HEADER_PATH=($(find \"${BUILD_DIR}\"/.. -name \"PALSwift.h\" | grep DerivedSources | grep \"PAL.build\" | grep -v WebCore | grep \"${CONFIGURATION}\" || true))\nfi\nif [[ ! \"${#HEADER_PATH[*]}\" -eq 0 ]]; then\n    cp \"${HEADER_PATH[0]}\" \"${BUILT_PRODUCTS_DIR}\"/DerivedSources/WebCore/.\nfi\n";
 		};
 		A5E79CEC1E67F2CF00FB8153 /* Make Frameworks Symbolic Link */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -44533,14 +44524,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		948FD0362B4C9D7900043FEB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				948FD0452B4C9DA300043FEB /* CryptoKitShim.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -44568,11 +44551,6 @@
 			isa = PBXTargetDependency;
 			target = 5355E8D11F967E9D0031E08C /* Generate Unified Sources */;
 			targetProxy = 5355E8DA1F967ED30031E08C /* PBXContainerItemProxy */;
-		};
-		94DF80242B4E619B00FF079A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 948FD0382B4C9D7900043FEB /* WebCoreSwift */;
-			targetProxy = 94DF80232B4E619B00FF079A /* PBXContainerItemProxy */;
 		};
 		DD041FF109D9E3250010AF2A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -44746,27 +44724,6 @@
 			};
 			name = Production;
 		};
-		948FD0402B4C9D7B00043FEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94B97D822B572BE20079DB5F /* WebCoreSwift.xcconfig */;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		948FD0412B4C9D7B00043FEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94B97D822B572BE20079DB5F /* WebCoreSwift.xcconfig */;
-			buildSettings = {
-			};
-			name = Release;
-		};
-		948FD0422B4C9D7B00043FEB /* Production */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94B97D822B572BE20079DB5F /* WebCoreSwift.xcconfig */;
-			buildSettings = {
-			};
-			name = Production;
-		};
 		DD041FC209D9DDDC0010AF2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1CDD45E50BA9C84600F90147 /* WebCore.xcconfig */;
@@ -44850,16 +44807,6 @@
 				5355E8D51F967E9D0031E08C /* Debug */,
 				5355E8D61F967E9D0031E08C /* Release */,
 				5355E8D71F967E9D0031E08C /* Production */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Production;
-		};
-		948FD03F2B4C9D7B00043FEB /* Build configuration list for PBXNativeTarget "WebCoreSwift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				948FD0402B4C9D7B00043FEB /* Debug */,
-				948FD0412B4C9D7B00043FEB /* Release */,
-				948FD0422B4C9D7B00043FEB /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Production;

@@ -589,7 +589,6 @@ void WebProcess::platformInitializeWebProcess(WebProcessCreationParameters& para
 void WebProcess::platformSetWebsiteDataStoreParameters(WebProcessDataStoreParameters&& parameters)
 {
 #if ENABLE(SANDBOX_EXTENSIONS)
-    SandboxExtension::consumePermanently(parameters.applicationCacheDirectoryExtensionHandle);
 #if !ENABLE(GPU_PROCESS)
     SandboxExtension::consumePermanently(parameters.mediaCacheDirectoryExtensionHandle);
 #endif
@@ -867,7 +866,6 @@ static void registerLogHook()
 
 void WebProcess::platformInitializeProcess(const AuxiliaryProcessInitializationParameters& parameters)
 {
-    setNotifyOptions();
 #if ENABLE(LOGD_BLOCKING_IN_WEBCONTENT)
     prewarmLogs();
     registerLogHook();

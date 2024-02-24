@@ -310,13 +310,10 @@ MediaTime MediaSource::duration() const
 
 MediaTime MediaSource::currentTime() const
 {
-    if (isClosed())
-        return MediaTime::zeroTime();
-
     if (m_pendingSeekTarget)
         return m_pendingSeekTarget->time;
 
-    return m_private->currentTime();
+    return m_private ? m_private->currentTime() : MediaTime::zeroTime();
 }
 
 PlatformTimeRanges MediaSource::buffered() const
@@ -1310,9 +1307,9 @@ ScriptExecutionContext* MediaSource::scriptExecutionContext() const
     return ActiveDOMObject::scriptExecutionContext();
 }
 
-EventTargetInterface MediaSource::eventTargetInterface() const
+enum EventTargetInterfaceType MediaSource::eventTargetInterface() const
 {
-    return MediaSourceEventTargetInterfaceType;
+    return EventTargetInterfaceType::MediaSource;
 }
 
 URLRegistry& MediaSource::registry() const

@@ -101,6 +101,7 @@
 #include "AcceleratedEffectValues.h"
 #include "KeyframeEffect.h"
 #include "KeyframeEffectStack.h"
+#include <wtf/WeakListHashSet.h>
 #endif
 
 namespace WebCore {
@@ -1411,6 +1412,12 @@ void RenderLayerBacking::updateGeometry(const RenderLayer* compositedAncestor)
     m_compositedBoundsOffsetFromGraphicsLayer = compositedBoundsOffset.fromPrimaryGraphicsLayer();
 
     auto primaryLayerPosition = primaryGraphicsLayerRect.location();
+
+    // If our content is being used in a view-transition, then all positioning
+    // is handled using a synthesized 'transform' property on the wrapping
+    // ::view-transition-new element.
+    if (renderer().capturedInViewTransition())
+        primaryLayerPosition = { };
 
     // FIXME: reflections should force transform-style to be flat in the style: https://bugs.webkit.org/show_bug.cgi?id=106959
     bool preserves3D = style.preserves3D() && !renderer().hasReflection();
@@ -4073,6 +4080,7 @@ bool RenderLayerBacking::updateAcceleratedEffectsAndBaseValues()
     }();
 
     AcceleratedEffects acceleratedEffects;
+    WeakListHashSet<AcceleratedEffect> weakAcceleratedEffects;
     if (auto* effectStack = target->keyframeEffectStack()) {
         auto animatesWidth = effectStack->containsProperty(CSSPropertyWidth);
         auto animatesHeight = effectStack->containsProperty(CSSPropertyHeight);
@@ -4090,8 +4098,10 @@ bool RenderLayerBacking::updateAcceleratedEffectsAndBaseValues()
             if (!hasInterpolatingEffect && effect->isRunningAccelerated())
                 hasInterpolatingEffect = true;
             effect->setAcceleratedRepresentation(acceleratedEffect.get());
+            weakAcceleratedEffects.add(*acceleratedEffect);
             acceleratedEffects.append(acceleratedEffect.releaseNonNull());
         }
+        effectStack->setAcceleratedEffects(WTFMove(weakAcceleratedEffects));
     }
 
     // If all of the effects in the stack are either idle, paused or filling, then the

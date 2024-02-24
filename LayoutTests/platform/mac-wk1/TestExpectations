@@ -1055,7 +1055,10 @@ media/media-sources-selection.html [ ImageOnlyFailure ]
 media/media-source/media-source-webm-configuration-change.html [ Failure ]
 media/media-source/media-source-webm-configuration-framerate.html [ Failure ]
 media/media-source/media-source-webm-configuration-vp9-header-color.html [ Failure ]
-media/media-source/media-managedmse-multipletracks-bufferedchange.html [ Failure ]
+
+# Managed MediaSource isn't enabled on WK1
+media/media-source/media-managedmse-multipletracks-bufferedchange.html [ Skip ]
+media/media-source/media-managedmse-poster.html [ Skip ]
 
 # CRABS WebM isn't supported in WK1
 media/media-webm-opus-buffered.html [ Failure ]
@@ -2628,8 +2631,6 @@ imported/w3c/web-platform-tests/html/semantics/embedded-content/the-iframe-eleme
 fast/html/transient-activation.html [ Skip ]
 fast/html/history-action-user-activation.html [ Skip ]
 
-webkit.org/b/259485 [ Ventura+ ] http/tests/media/hls/track-in-band-multiple-cues.html [ Crash ]
-
 webkit.org/b/259546 [ Debug ] media/modern-media-controls/tracks-support/text-track-selected-via-media-api.html [ Skip ]
 
 webkit.org/b/260070 fast/selectors/style-invalidation-hover-change-descendants.html [ Pass Failure ]
@@ -2769,11 +2770,13 @@ imported/w3c/web-platform-tests/dom/events/scrolling/scrollend-event-for-user-sc
 imported/w3c/web-platform-tests/html/semantics/popovers/popover-light-dismiss.html [ Skip ]
 imported/w3c/web-platform-tests/pointerevents/pointerevent_touch-action-mouse.html [ Skip ]
 
+imported/w3c/web-platform-tests/html/semantics/popovers/popover-top-layer-nesting.tentative.html [ Failure ]
+imported/w3c/web-platform-tests/html/semantics/popovers/popover-top-layer-nesting-hints.tentative.html [ Failure ]
+imported/w3c/web-platform-tests/html/semantics/popovers/popover-top-layer-nesting-anchor.tentative.html [ Failure ]
+
 #test uses test helper functions not implemented on WK1
 fast/dom/no-scroll-when-command-click-fragment-URL.html [ Skip ]
 
 # webkit.org/b/267799 [ Ventura wk1 ] 2 tests in media/track are constant crash
 [ Ventura ] media/track/track-in-band-layout.html [ Crash ]
 [ Ventura ] media/track/track-paint-on-captions.html [ Crash ]
-
-[ Sonoma+ ] css3/filters/effect-sepia.html [ ImageOnlyFailure ]
