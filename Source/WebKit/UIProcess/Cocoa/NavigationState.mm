@@ -45,7 +45,7 @@
 #import "WKBackForwardListItemInternal.h"
 #import "WKDownloadInternal.h"
 #import "WKFrameInfoInternal.h"
-#import "WKHistoryDelegatePrivate.h"
+#import "WKHistoryDelegate.h"
 #import "WKNSDictionary.h"
 #import "WKNSURLAuthenticationChallenge.h"
 #import "WKNSURLExtras.h"
@@ -237,19 +237,22 @@ void NavigationState::setNavigationDelegate(id<WKNavigationDelegate> delegate)
 #endif
 }
 
-RetainPtr<id<WKHistoryDelegatePrivate>> NavigationState::historyDelegate() const
+RetainPtr<id<WKHistoryDelegate>> NavigationState::historyDelegate() const
 {
+    RELEASE_LOG(Loading, "create history delegate");
     return m_historyDelegate.get();
 }
 
-void NavigationState::setHistoryDelegate(id<WKHistoryDelegatePrivate> historyDelegate)
+void NavigationState::setHistoryDelegate(id<WKHistoryDelegate> historyDelegate)
 {
     m_historyDelegate = historyDelegate;
 
-    m_historyDelegateMethods.webViewDidNavigateWithNavigationData = [historyDelegate respondsToSelector:@selector(_webView:didNavigateWithNavigationData:)];
-    m_historyDelegateMethods.webViewDidPerformClientRedirectFromURLToURL = [historyDelegate respondsToSelector:@selector(_webView:didPerformClientRedirectFromURL:toURL:)];
-    m_historyDelegateMethods.webViewDidPerformServerRedirectFromURLToURL = [historyDelegate respondsToSelector:@selector(_webView:didPerformServerRedirectFromURL:toURL:)];
-    m_historyDelegateMethods.webViewDidUpdateHistoryTitleForURL = [historyDelegate respondsToSelector:@selector(_webView:didUpdateHistoryTitle:forURL:)];
+    RELEASE_LOG(Loading, "setting history delegate");
+    RELEASE_LOG_ERROR(Loading, "setting history delegate");
+    m_historyDelegateMethods.webViewDidNavigateWithNavigationData = [historyDelegate respondsToSelector:@selector(webView:didNavigateWithNavigationData:)];
+    m_historyDelegateMethods.webViewDidPerformClientRedirectFromURLToURL = [historyDelegate respondsToSelector:@selector(webView:didPerformClientRedirectFromURL:toURL:)];
+    m_historyDelegateMethods.webViewDidPerformServerRedirectFromURLToURL = [historyDelegate respondsToSelector:@selector(webView:didPerformServerRedirectFromURL:toURL:)];
+    m_historyDelegateMethods.webViewDidUpdateHistoryTitleForURL = [historyDelegate respondsToSelector:@selector(webView:didUpdateHistoryTitle:forURL:)];
 }
 
 void NavigationState::navigationGestureDidBegin()
@@ -1446,7 +1449,7 @@ void NavigationState::HistoryClient::didNavigateWithNavigationData(WebPageProxy&
     if (!historyDelegate)
         return;
 
-    [historyDelegate _webView:m_navigationState->webView().get() didNavigateWithNavigationData:wrapper(API::NavigationData::create(navigationDataStore)).get()];
+    [historyDelegate webView:m_navigationState->webView().get() didNavigateWithNavigationData:wrapper(API::NavigationData::create(navigationDataStore)).get()];
 }
 
 void NavigationState::HistoryClient::didPerformClientRedirect(WebPageProxy&, const WTF::String& sourceURL, const WTF::String& destinationURL)
@@ -1461,7 +1464,7 @@ void NavigationState::HistoryClient::didPerformClientRedirect(WebPageProxy&, con
     if (!historyDelegate)
         return;
 
-    [historyDelegate _webView:m_navigationState->webView().get() didPerformClientRedirectFromURL:[NSURL _web_URLWithWTFString:sourceURL] toURL:[NSURL _web_URLWithWTFString:destinationURL]];
+    [historyDelegate webView:m_navigationState->webView().get() didPerformClientRedirectFromURL:[NSURL _web_URLWithWTFString:sourceURL] toURL:[NSURL _web_URLWithWTFString:destinationURL]];
 }
 
 void NavigationState::HistoryClient::didPerformServerRedirect(WebPageProxy&, const WTF::String& sourceURL, const WTF::String& destinationURL)
@@ -1476,7 +1479,7 @@ void NavigationState::HistoryClient::didPerformServerRedirect(WebPageProxy&, con
     if (!historyDelegate)
         return;
 
-    [historyDelegate _webView:m_navigationState->webView().get() didPerformServerRedirectFromURL:[NSURL _web_URLWithWTFString:sourceURL] toURL:[NSURL _web_URLWithWTFString:destinationURL]];
+    [historyDelegate webView:m_navigationState->webView().get() didPerformServerRedirectFromURL:[NSURL _web_URLWithWTFString:sourceURL] toURL:[NSURL _web_URLWithWTFString:destinationURL]];
 }
 
 void NavigationState::HistoryClient::didUpdateHistoryTitle(WebPageProxy&, const WTF::String& title, const WTF::String& url)
@@ -1491,7 +1494,7 @@ void NavigationState::HistoryClient::didUpdateHistoryTitle(WebPageProxy&, const 
     if (!historyDelegate)
         return;
 
-    [historyDelegate _webView:m_navigationState->webView().get() didUpdateHistoryTitle:title forURL:[NSURL _web_URLWithWTFString:url]];
+    [historyDelegate webView:m_navigationState->webView().get() didUpdateHistoryTitle:title forURL:[NSURL _web_URLWithWTFString:url]];
 }
 
 void NavigationState::willChangeIsLoading()

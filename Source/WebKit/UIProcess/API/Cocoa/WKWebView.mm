@@ -69,7 +69,7 @@
 #import "WKFindConfiguration.h"
 #import "WKFindResultInternal.h"
 #import "WKFrameInfoPrivate.h"
-#import "WKHistoryDelegatePrivate.h"
+#import "WKHistoryDelegate.h"
 #import "WKLayoutMode.h"
 #import "WKNSData.h"
 #import "WKNSURLExtras.h"
@@ -2520,12 +2520,12 @@ static RetainPtr<NSArray> wkTextManipulationErrors(NSArray<_WKTextManipulationIt
     return _observedRenderingProgressEvents;
 }
 
-- (id <WKHistoryDelegatePrivate>)_historyDelegate
+- (id <WKHistoryDelegate>)_historyDelegate
 {
     return _navigationState->historyDelegate().autorelease();
 }
 
-- (void)_setHistoryDelegate:(id <WKHistoryDelegatePrivate>)historyDelegate
+- (void)_setHistoryDelegate:(id <WKHistoryDelegate>)historyDelegate
 {
     _page->setHistoryClient(_navigationState->createHistoryClient());
     _navigationState->setHistoryDelegate(historyDelegate);

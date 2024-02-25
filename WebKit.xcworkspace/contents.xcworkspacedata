@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Source/Orion/Orion.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Configurations">
    </FileRef>
    <FileRef

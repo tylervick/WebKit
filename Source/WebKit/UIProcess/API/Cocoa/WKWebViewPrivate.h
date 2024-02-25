@@ -140,7 +140,7 @@ typedef NS_OPTIONS(NSUInteger, _WKRectEdge) {
 @class _WKThumbnailView;
 @class _WKWebViewPrintFormatter;
 
-@protocol WKHistoryDelegatePrivate;
+@protocol WKHistoryDelegate;
 @protocol _WKAppHighlightDelegate;
 @protocol _WKDiagnosticLoggingDelegate;
 @protocol _WKFindDelegate;
@@ -158,7 +158,7 @@ typedef NS_OPTIONS(NSUInteger, _WKRectEdge) {
 
 @property (nonatomic, setter=_setObservedRenderingProgressEvents:) _WKRenderingProgressEvents _observedRenderingProgressEvents;
 
-@property (nonatomic, weak, setter=_setHistoryDelegate:) id <WKHistoryDelegatePrivate> _historyDelegate;
+@property (nonatomic, weak, setter=_setHistoryDelegate:) id <WKHistoryDelegate> _historyDelegate;
 @property (nonatomic, weak, setter=_setIconLoadingDelegate:) id <_WKIconLoadingDelegate> _iconLoadingDelegate;
 @property (nonatomic, weak, setter=_setResourceLoadDelegate:) id <_WKResourceLoadDelegate> _resourceLoadDelegate WK_API_AVAILABLE(macos(11.0), ios(14.0));
 

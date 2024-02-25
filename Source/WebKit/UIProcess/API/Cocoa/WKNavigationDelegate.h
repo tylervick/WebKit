@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class WKNavigationResponse;
 @class WKWebView;
 @class WKWebpagePreferences;
+@class HistoryItem;
 
 /*! @enum WKNavigationActionPolicy
  @abstract The policy to pass back to the decision handler from the
@@ -68,6 +69,8 @@ typedef NS_ENUM(NSInteger, WKNavigationResponsePolicy) {
 @protocol WKNavigationDelegate <NSObject>
 
 @optional
+
+- (void)receivedHistoryItemForWebView:(WKWebView *)webView;
 
 /*! @abstract Decides whether to allow or cancel a navigation.
  @param webView The web view invoking the delegate method.

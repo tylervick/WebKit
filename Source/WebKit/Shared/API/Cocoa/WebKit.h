@@ -41,6 +41,7 @@
 #import <WebKit/WKNavigation.h>
 #import <WebKit/WKNavigationAction.h>
 #import <WebKit/WKNavigationDelegate.h>
+#import <WebKit/WKHistoryDelegate.h>
 #import <WebKit/WKNavigationResponse.h>
 #import <WebKit/WKOpenPanelParameters.h>
 #import <WebKit/WKPDFConfiguration.h>

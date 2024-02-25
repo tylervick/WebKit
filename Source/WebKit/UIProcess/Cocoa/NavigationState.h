@@ -39,7 +39,7 @@
 #import <wtf/WeakPtr.h>
 
 @class WKWebView;
-@protocol WKHistoryDelegatePrivate;
+@protocol WKHistoryDelegate;
 @protocol WKNavigationDelegate;
 
 namespace API {
@@ -68,8 +68,8 @@ public:
     RetainPtr<id<WKNavigationDelegate>> navigationDelegate() const;
     void setNavigationDelegate(id<WKNavigationDelegate>);
 
-    RetainPtr<id<WKHistoryDelegatePrivate>> historyDelegate() const;
-    void setHistoryDelegate(id<WKHistoryDelegatePrivate>);
+    RetainPtr<id<WKHistoryDelegate>> historyDelegate() const;
+    void setHistoryDelegate(id<WKHistoryDelegate>);
 
     // Called by the page client.
     void navigationGestureDidBegin();
@@ -274,7 +274,7 @@ private:
 #endif
     } m_navigationDelegateMethods;
 
-    WeakObjCPtr<id<WKHistoryDelegatePrivate>> m_historyDelegate;
+    WeakObjCPtr<id<WKHistoryDelegate>> m_historyDelegate;
     struct {
         bool webViewDidNavigateWithNavigationData : 1;
         bool webViewDidPerformClientRedirectFromURLToURL : 1;
