@@ -7301,8 +7301,10 @@ void WebPageProxy::didNavigateWithNavigationDataShared(Ref<WebProcessProxy>&& pr
     MESSAGE_CHECK(process, frame);
     MESSAGE_CHECK(process, frame->page() == this);
 
-    if (frame->isMainFrame())
+    if (frame->isMainFrame()) {
+        m_navigationClient->didNavigateWithNavigationData(*this, store);
         m_historyClient->didNavigateWithNavigationData(*this, store);
+    }
     process->processPool().historyClient().didNavigateWithNavigationData(process->protectedProcessPool(), *this, store, *frame);
 }
 

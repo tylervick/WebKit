@@ -149,6 +149,7 @@ public:
         completionHandler(currentSOAuthorizationLoadPolicy);
     }
 #endif
+    virtual void didNavigateWithNavigationData(WebKit::WebPageProxy&, const WebKit::WebNavigationDataStore&) { }
 };
 
 } // namespace API

@@ -235,6 +235,7 @@ void NavigationState::setNavigationDelegate(id<WKNavigationDelegate> delegate)
 #if HAVE(APP_SSO)
     m_navigationDelegateMethods.webViewDecidePolicyForSOAuthorizationLoadWithCurrentPolicyForExtensionCompletionHandler = [delegate respondsToSelector:@selector(_webView:decidePolicyForSOAuthorizationLoadWithCurrentPolicy:forExtension:completionHandler:)];
 #endif
+    m_navigationDelegateMethods.webViewDidNavigateWithNavigationData = [delegate respondsToSelector:@selector(webView:didNavigateWithNavigationData:)];
 }
 
 RetainPtr<id<WKHistoryDelegatePrivate>> NavigationState::historyDelegate() const
@@ -721,6 +722,19 @@ void NavigationState::NavigationClient::contentRuleListNotification(WebPageProxy
     }
 }
 #endif
+
+void NavigationState::NavigationClient::didNavigateWithNavigationData(WebPageProxy& page, const WebNavigationDataStore& navigationDataStore)
+{
+    if (!m_navigationState)
+        return;
+
+    auto navigationDelegate = m_navigationState->navigationDelegate();
+    if (!navigationDelegate)
+        return;
+
+    if (m_navigationState->m_navigationDelegateMethods.webViewDidNavigateWithNavigationData)
+        [navigationDelegate webView:m_navigationState->webView().get() didNavigateWithNavigationData: wrapper(API::NavigationData::create(navigationDataStore)).get()];
+}
     
 void NavigationState::NavigationClient::decidePolicyForNavigationResponse(WebPageProxy& page, Ref<API::NavigationResponse>&& navigationResponse, Ref<WebFramePolicyListenerProxy>&& listener)
 {

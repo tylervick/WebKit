@@ -29,6 +29,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class WKNavigationData;
 @class WKDownload;
 @class WKNavigation;
 @class WKNavigationAction;
@@ -68,6 +69,8 @@ typedef NS_ENUM(NSInteger, WKNavigationResponsePolicy) {
 @protocol WKNavigationDelegate <NSObject>
 
 @optional
+
+- (void)webView:(WKWebView *)webView didNavigateWithNavigationData:(WKNavigationData *)navigationData;
 
 /*! @abstract Decides whether to allow or cancel a navigation.
  @param webView The web view invoking the delegate method.

@@ -153,6 +153,7 @@ private:
 #if HAVE(APP_SSO)
         void decidePolicyForSOAuthorizationLoad(WebPageProxy&, SOAuthorizationLoadPolicy, const String&, CompletionHandler<void(SOAuthorizationLoadPolicy)>&&) override;
 #endif
+        void didNavigateWithNavigationData(WebPageProxy&, const WebNavigationDataStore&) override;
 
         WeakPtr<NavigationState> m_navigationState;
     };
@@ -272,6 +273,7 @@ private:
 #if HAVE(APP_SSO)
         bool webViewDecidePolicyForSOAuthorizationLoadWithCurrentPolicyForExtensionCompletionHandler : 1;
 #endif
+        bool webViewDidNavigateWithNavigationData : 1;
     } m_navigationDelegateMethods;
 
     WeakObjCPtr<id<WKHistoryDelegatePrivate>> m_historyDelegate;
