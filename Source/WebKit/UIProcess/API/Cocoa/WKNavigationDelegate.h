@@ -72,6 +72,8 @@ typedef NS_ENUM(NSInteger, WKNavigationResponsePolicy) {
 
 - (void)webView:(WKWebView *)webView didNavigateWithNavigationData:(WKNavigationData *)navigationData;
 
+- (void)webView:(WKWebView *)webView didUpdateHistoryTitle:(NSString *)title forURL:(NSURL *)URL;
+
 /*! @abstract Decides whether to allow or cancel a navigation.
  @param webView The web view invoking the delegate method.
  @param navigationAction Descriptive information about the action

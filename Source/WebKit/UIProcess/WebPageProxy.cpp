@@ -7372,8 +7372,11 @@ void WebPageProxy::didUpdateHistoryTitle(const String& title, const String& url,
 
     MESSAGE_CHECK_URL(m_process, url);
 
-    if (frame->isMainFrame())
+    if (frame->isMainFrame()) {
+        m_navigationClient->didUpdateHistoryTitle(*this, title, url);
         m_historyClient->didUpdateHistoryTitle(*this, title, url);
+    }
+        
     Ref processPool = process().processPool();
     processPool->historyClient().didUpdateHistoryTitle(processPool, *this, title, url, *frame);
 }

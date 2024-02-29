@@ -150,6 +150,7 @@ public:
     }
 #endif
     virtual void didNavigateWithNavigationData(WebKit::WebPageProxy&, const WebKit::WebNavigationDataStore&) { }
+    virtual void didUpdateHistoryTitle(WebKit::WebPageProxy&, const WTF::String&, const WTF::String&) { }
 };
 
 } // namespace API
