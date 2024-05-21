@@ -23,6 +23,8 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <WebKit/WKNavigationDataRef.h>
+
 #import <WebKit/WKNavigationData.h>
 
 #import "APINavigationData.h"

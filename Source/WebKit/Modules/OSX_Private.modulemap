@@ -739,11 +739,6 @@ framework module WebKit_Private [system] {
     export *
   }
 
-  explicit module WKNavigationData {
-    header "WKNavigationData.h"
-    export *
-  }
-
   explicit module WKNavigationDataRef {
     header "WKNavigationDataRef.h"
     export *

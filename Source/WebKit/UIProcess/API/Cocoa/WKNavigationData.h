@@ -25,8 +25,6 @@
 
 #pragma once
 
-#include <WebKit/WKNavigationDataRef.h>
-
 #ifdef __OBJC__
 
 #import <WebKit/WKFoundation.h>

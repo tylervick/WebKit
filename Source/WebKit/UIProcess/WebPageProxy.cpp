@@ -7301,8 +7301,10 @@ void WebPageProxy::didNavigateWithNavigationDataShared(Ref<WebProcessProxy>&& pr
     MESSAGE_CHECK(process, frame);
     MESSAGE_CHECK(process, frame->page() == this);
 
-    if (frame->isMainFrame())
+    if (frame->isMainFrame()) {
+        m_navigationClient->didNavigateWithNavigationData(*this, store);
         m_historyClient->didNavigateWithNavigationData(*this, store);
+    }
     process->processPool().historyClient().didNavigateWithNavigationData(process->protectedProcessPool(), *this, store, *frame);
 }
 
@@ -7370,8 +7372,11 @@ void WebPageProxy::didUpdateHistoryTitle(const String& title, const String& url,
 
     MESSAGE_CHECK_URL(m_process, url);
 
-    if (frame->isMainFrame())
+    if (frame->isMainFrame()) {
+        m_navigationClient->didUpdateHistoryTitle(*this, title, url);
         m_historyClient->didUpdateHistoryTitle(*this, title, url);
+    }
+        
     Ref processPool = process().processPool();
     processPool->historyClient().didUpdateHistoryTitle(processPool, *this, title, url, *frame);
 }
